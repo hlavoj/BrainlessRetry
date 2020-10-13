@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	
+	  <PackageId>BrainlessRetry</PackageId>
+	  <Version>0.1.0</Version>
+	  <Authors>hlavoj</Authors>
+	  <Description>Simple library for retry of any method.</Description>
+	  <IsPackable>true</IsPackable>
+	  <RepositoryUrl>https://github.com/hlavoj/BrainlessRetry</RepositoryUrl>
+  
   </PropertyGroup>
 
 </Project>
