@@ -19,20 +19,23 @@ steps:
   displayName: dotnet build
   inputs:
     command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
     projects: 'src'
 
 - task: DotNetCoreCLI@2
+  displayName: dotnet test
   inputs:
     command: 'test'
     projects: 'src'
 
 - task: DotNetCoreCLI@2
-  displayName: dotnet publish
+  displayName: "dotnet pack"
   inputs:
-    command: 'publish'
-    projects: 'src'
-    publishWebProjects: true
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    command: 'pack'
+    arguments: '--configuration $(buildConfiguration)'
+    packagesToPack: 'src/BrainlessRetry/BrainlessRetry.csproj'
+    nobuild: true
+    versioningScheme: 'off'
 
 
 - task: PublishBuildArtifacts@1
@@ -40,3 +43,14 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: NuGetCommand@2
+  displayName: 'nuget push'
+  inputs:
+    command: 'push'
+    feedsToUse: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'TestFeed'
+    versioningScheme: 'off'
+    allowPackageConflicts: true
