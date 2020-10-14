@@ -47,9 +47,19 @@ steps:
 
 - task: CmdLine@2
   inputs:
+    script: 'cd src\BrainlessRetry.Tests'
+
+- task: CmdLine@2
+  inputs:
+    script: 'dir'
+
+
+- task: CmdLine@2
+  inputs:
     script: |
-      cd src\BrainlessRetry.Tests\TestResults\
+      cd src\BrainlessRetry.Tests
       dir
+
 
 - task: PublishTestResults@2
   inputs:
