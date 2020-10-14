@@ -44,7 +44,9 @@ steps:
     projects: 'src'
     arguments: --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/
 
-
+- task: CmdLine@2
+  inputs:
+    script: 'dir'
 
 - task: PublishTestResults@2
   inputs:
