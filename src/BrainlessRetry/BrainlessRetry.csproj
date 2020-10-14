@@ -4,13 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 	
 	  <PackageId>BrainlessRetry</PackageId>
-	  <Version>0.1.1-beta</Version>
+
 	  <Authors>hlavoj</Authors>
 	  <Description>Simple library for retry of any method.</Description>
 	  <IsPackable>true</IsPackable>
 	  <RepositoryUrl>https://github.com/hlavoj/BrainlessRetry</RepositoryUrl>
-	  <AssemblyVersion>0.1.1-beta</AssemblyVersion>
-	  <FileVersion>0.1.1-beta</FileVersion>
+	  <Version>0.1.1-beta</Version>
+
   
   </PropertyGroup>
 
