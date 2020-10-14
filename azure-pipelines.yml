@@ -27,6 +27,7 @@ steps:
   inputs:
     command: 'test'
     projects: 'src'
+    arguments: --collect "Code coverage"'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
