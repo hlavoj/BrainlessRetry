@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 	
 	  <PackageId>BrainlessRetry</PackageId>
-	  <Version>0.1.0</Version>
+	  <Version>0.1.1-beta</Version>
 	  <Authors>hlavoj</Authors>
 	  <Description>Simple library for retry of any method.</Description>
 	  <IsPackable>true</IsPackable>
