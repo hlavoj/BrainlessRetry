@@ -27,7 +27,7 @@ steps:
   inputs:
     command: 'test'
     projects: 'src'
-    arguments: --collect "Code coverage"'
+    arguments: --collect:"XPlat Code Coverage"
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
