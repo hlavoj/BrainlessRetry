@@ -44,9 +44,7 @@ steps:
     projects: 'src'
     arguments: --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/
 
-- script: dotnet reportgenerator "-reports:$(Build.SourcesDirectory)/TestResults/Coverage/coverage.cobertura.xml" "-targetDir:$(Build.SourcesDirectory)/TestResults/Coverage/Reports" -tag:$(Build.BuildNumber) -reportTypes:htmlInline
-  workingDirectory: $(Build.SourcesDirectory)/BuildApp.Web.Tests
-  displayName: 'dotnet reportgenerator'
+
 
 - task: PublishTestResults@2
   inputs:
