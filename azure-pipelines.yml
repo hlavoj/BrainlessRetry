@@ -48,6 +48,12 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
+    testResultsFormat: 'XUnit'
+    testResultsFiles: '**/*.trx'
+    failTaskOnFailedTests: true
+
+- task: PublishTestResults@2
+  inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
     failTaskOnFailedTests: true
@@ -55,8 +61,8 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'cobertura'
-    summaryFileLocation: $(Build.SourcesDirectory)/TestResults/Coverage/**/coverage.cobertura.xml
-    reportDirectory: $(Build.SourcesDirectory)/TestResults/Coverage/Reports
+    summaryFileLocation: $(System.DefaultWorkingDirectory)/TestResults/Coverage/**/coverage.cobertura.xml
+    reportDirectory: $(System.DefaultWorkingDirectory)/TestResults/Coverage/Reports
     failIfCoverageEmpty: false 
     
 
