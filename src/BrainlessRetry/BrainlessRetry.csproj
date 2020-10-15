@@ -9,9 +9,17 @@
 	  <Description>Simple library for retry of any method.</Description>
 	  <IsPackable>true</IsPackable>
 	  <RepositoryUrl>https://github.com/hlavoj/BrainlessRetry</RepositoryUrl>
-	  <Version>0.1.1-beta</Version>
+	  <Version>0.1.2-beta</Version>
+	  <PackageIcon>BrainlessRetryIcon.png</PackageIcon>
 
   
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\BrainlessRetryIcon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

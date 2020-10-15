@@ -3,7 +3,10 @@
 [![Test codecoverage](https://img.shields.io/azure-devops/coverage/hlavoj/BrainlessRetry/4/main)](https://dev.azure.com/hlavoj/BrainlessRetry/_build?definitionId=4)
 [![Build test](https://img.shields.io/azure-devops/tests/hlavoj/BrainlessRetry/4/main)](https://dev.azure.com/hlavoj/BrainlessRetry/_build?definitionId=4)
 
-# BrainlessRetry
+
+
+
+# <img src="BrainlessRetryIcon.png" alt="drawing" width="30"  /> BrainlessRetry
 Simple library for retry of any method. 
 
 
