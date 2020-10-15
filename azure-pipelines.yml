@@ -61,6 +61,13 @@ steps:
       dir
 
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      cd $(Agent.TempDirectory)
+      dir
+
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'XUnit'
