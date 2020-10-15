@@ -36,22 +36,11 @@ steps:
     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 
-
-
-
 - task: CmdLine@2
   inputs:
     script: |
       cd $(Agent.TempDirectory)
       dir /s
-
-# - task: PublishCodeCoverageResults@1
-#   inputs:
-#     codeCoverageTool: 'cobertura'
-#     summaryFileLocation: $(Agent.TempDirectory)/**/coverage.cobertura.xml
-#     reportDirectory: $(Agent.TempDirectory)/TestResults/Coverage/Reports
-#     failIfCoverageEmpty: false 
-    
 
 
 - task: DotNetCoreCLI@2
