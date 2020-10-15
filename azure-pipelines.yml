@@ -27,6 +27,21 @@ steps:
   inputs:
     command: 'test'
     projects: 'src'
+    arguments: --collect:"XPlat Code Coverage"
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      cd $(Agent.TempDirectory)
+      dir /s
+
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
@@ -44,11 +59,3 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-# - task: NuGetCommand@2
-#   displayName: 'nuget push'
-#   inputs:
-#     command: 'push'
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-#     nuGetFeedType: 'internal'
-#     publishVstsFeed: '812d3f2b-a5ce-4c9f-b9bf-23f768973dfd/b3eb05a0-5c7e-41b9-af13-849cc1e8038e'
-#     allowPackageConflicts: true
