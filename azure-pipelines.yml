@@ -54,17 +54,17 @@ steps:
       dir /s
 
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'XUnit'
-    testResultsFiles: '$(Agent.TempDirectory)/*.trx'
-    failTaskOnFailedTests: true
-
 # - task: PublishTestResults@2
 #   inputs:
-#     testRunner: VSTest
+#     testResultsFormat: 'XUnit'
 #     testResultsFiles: '$(Agent.TempDirectory)/*.trx'
 #     failTaskOnFailedTests: true
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '$(Agent.TempDirectory)/*.trx'
+    failTaskOnFailedTests: true
 
 # - task: PublishCodeCoverageResults@1
 #   inputs:
