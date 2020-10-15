@@ -29,20 +29,12 @@ steps:
     projects: 'src'
     arguments: --collect:"XPlat Code Coverage"
 
-# - task: PublishCodeCoverageResults@1
-#   displayName: 'Publish code coverage report'
-#   inputs:
-#     codeCoverageTool: 'Cobertura'
-#     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
-
-
-# - task: DotNetCoreCLI@2
-#   displayName: dotnet test
-#   inputs:
-#     command: 'test'
-#     projects: 'src'
-#     arguments: --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/
 
 
 
@@ -53,12 +45,12 @@ steps:
       cd $(Agent.TempDirectory)
       dir /s
 
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: $(Agent.TempDirectory)/**/coverage.cobertura.xml
-    reportDirectory: $(Agent.TempDirectory)/TestResults/Coverage/Reports
-    failIfCoverageEmpty: false 
+# - task: PublishCodeCoverageResults@1
+#   inputs:
+#     codeCoverageTool: 'cobertura'
+#     summaryFileLocation: $(Agent.TempDirectory)/**/coverage.cobertura.xml
+#     reportDirectory: $(Agent.TempDirectory)/TestResults/Coverage/Reports
+#     failIfCoverageEmpty: false 
     
 
 
