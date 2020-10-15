@@ -60,18 +60,18 @@ steps:
     testResultsFiles: '$(Agent.TempDirectory)/*.trx'
     failTaskOnFailedTests: true
 
-- task: PublishTestResults@2
-  inputs:
-    testRunner: VSTest
-    testResultsFiles: '$(Agent.TempDirectory)/*.trx'
-    failTaskOnFailedTests: true
+# - task: PublishTestResults@2
+#   inputs:
+#     testRunner: VSTest
+#     testResultsFiles: '$(Agent.TempDirectory)/*.trx'
+#     failTaskOnFailedTests: true
 
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: $(Agent.TempDirectory)/**/coverage.cobertura.xml
-    reportDirectory: $(Agent.TempDirectory)/TestResults/Coverage/Reports
-    failIfCoverageEmpty: false 
+# - task: PublishCodeCoverageResults@1
+#   inputs:
+#     codeCoverageTool: 'cobertura'
+#     summaryFileLocation: $(Agent.TempDirectory)/**/coverage.cobertura.xml
+#     reportDirectory: $(Agent.TempDirectory)/TestResults/Coverage/Reports
+#     failIfCoverageEmpty: false 
     
 
 
