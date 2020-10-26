@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace BrainlessRetry
 {
-    public class WaitAndRetry : IWaitAndRetry
+    public static class WaitAndRetry 
     {
 
-        public async Task<T> RetryAsync<T>(int attemptCount, int waitTime, Func<Task<T>> method)
+        public static async Task<T> RetryAsync<T>(int attemptCount, int waitTime, Func<Task<T>> method)
         {
             T result = default;
             for (int i = 1; i <= attemptCount; i++)
@@ -29,7 +29,7 @@ namespace BrainlessRetry
             return result;
         }
 
-        public async Task RetryAsync(int attemptCount, int waitTime, Func<Task> method)
+        public static async Task RetryAsync(int attemptCount, int waitTime, Func<Task> method)
         {
             for (int i = 1; i <= attemptCount; i++)
             {
@@ -49,7 +49,7 @@ namespace BrainlessRetry
             }
         }
 
-        public T Retry<T>(int attemptCount, int waitTime, Func<T> method)
+        public static T Retry<T>(int attemptCount, int waitTime, Func<T> method)
         {
             T result = default;
             for (int i = 1; i <= attemptCount; i++)
@@ -73,7 +73,7 @@ namespace BrainlessRetry
         }
 
 
-        public void Retry(int attemptCount, int waitTime, Action method)
+        public static void Retry(int attemptCount, int waitTime, Action method)
         {
             for (int i = 1; i <= attemptCount; i++)
             {

@@ -8,20 +8,19 @@ namespace BrainlessRetry.ConsoleExample
 
         static async Task Main(string[] args)
         {
-            WaitAndRetry retry = new WaitAndRetry();
             Service service = new Service();
 
             #region methods with return
 
             // synchronous call
             service.AttemptCount = 0;
-            var result1 = retry.Retry<string>(10, 1, () => service.TestSuccess(1));
+            var result1 = WaitAndRetry.Retry<string>(10, 1, () => service.TestSuccess(1));
 
             // async call (both options are correct)
             service.AttemptCount = 0;
-            var result21 = await retry.RetryAsync<string>(10, 1, () => service.TestSuccessAsync(1));
+            var result21 = await WaitAndRetry.RetryAsync<string>(10, 1, () => service.TestSuccessAsync(1));
             service.AttemptCount = 0;
-            var result23 = await retry.RetryAsync<string>(10, 1, async () => await service.TestSuccessAsync(1));
+            var result23 = await WaitAndRetry.RetryAsync<string>(10, 1, async () => await service.TestSuccessAsync(1));
 
             #endregion
 
@@ -29,17 +28,17 @@ namespace BrainlessRetry.ConsoleExample
 
             // synchronous call
             service.AttemptCount = 0;
-            retry.Retry(10, 1, () => service.TestVoidSuccess(1));
+            WaitAndRetry.Retry(10, 1, () => service.TestVoidSuccess(1));
 
             // async call (both options are correct)
             service.AttemptCount = 0;
-            await retry.RetryAsync(10, 1,  () => service.TestVoidSuccessAsync(1));
+            await WaitAndRetry.RetryAsync(10, 1,  () => service.TestVoidSuccessAsync(1));
             service.AttemptCount = 0;
-            await retry.RetryAsync(10, 1, async () => await service.TestVoidSuccessAsync(1));
+            await WaitAndRetry.RetryAsync(10, 1, async () => await service.TestVoidSuccessAsync(1));
 
             // This is wrong usage  !!!
             service.AttemptCount = 0;
-            await retry.Retry(10, 1, () => service.TestVoidSuccessAsync(1));
+            await WaitAndRetry.Retry(10, 1, () => service.TestVoidSuccessAsync(1));
 
             #endregion
 
