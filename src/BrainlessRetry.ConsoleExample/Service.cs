@@ -9,14 +9,14 @@ namespace BrainlessRetry.ConsoleExample
 
         public string TestSuccess(int a)
         {
-            if (AttemptCount == 0)
+            if (AttemptCount++ == 0)
                 throw new Exception();
             return a.ToString();
         }
 
         public async Task<string> TestSuccessAsync(int a)
         {
-            if (AttemptCount == 0)
+            if (AttemptCount++ == 0)
                 throw new Exception();
             await Task.Delay(0);
             return a.ToString();
@@ -25,13 +25,13 @@ namespace BrainlessRetry.ConsoleExample
 
         public void TestVoidSuccess(int a)
         {
-            if (AttemptCount == 0)
+            if (AttemptCount++ == 0)
                 throw new Exception();
         }
 
         public async Task TestVoidSuccessAsync(int a)
         {
-            if (AttemptCount == 0)
+            if (AttemptCount++ == 0)
                 throw new Exception();
             await Task.Delay(0);
         }

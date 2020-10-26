@@ -6,6 +6,7 @@ namespace BrainlessRetry
 {
     public class WaitAndRetry : IWaitAndRetry
     {
+
         public async Task<T> RetryAsync<T>(int attemptCount, int waitTime, Func<Task<T>> method)
         {
             T result = default;
@@ -20,7 +21,7 @@ namespace BrainlessRetry
                 {
                     if (i == attemptCount)
                     {
-                       throw new RetryException($"Retrying method: '{method.Method.Name}' failed for {attemptCount}times. See inner exception for last result.", e);
+                        throw new RetryException($"Retrying method: '{method.Method.Name}' failed for {attemptCount}times. See inner exception for last result.", e);
                     }
                     await Task.Delay(waitTime);
                 }
@@ -34,7 +35,7 @@ namespace BrainlessRetry
             {
                 try
                 {
-                   await method.Invoke();
+                    await method.Invoke();
                     break;
                 }
                 catch (Exception e)
@@ -62,7 +63,7 @@ namespace BrainlessRetry
                 {
                     if (i == attemptCount)
                     {
-                       throw new RetryException($"Retrying method: '{method.Method.Name}' failed for {attemptCount}times. See inner exception for last result.", e);
+                        throw new RetryException($"Retrying method: '{method.Method.Name}' failed for {attemptCount}times. See inner exception for last result.", e);
                     }
 
                     Thread.Sleep(waitTime);
