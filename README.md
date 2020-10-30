@@ -20,7 +20,6 @@ var result = retry.Retry<string>(10, 1000, () => YourMethod(...) );
 
 
 ## Installation
-In proggress not available now.
 ```
 PM> Install-Package BrainlessRetry
 ```
