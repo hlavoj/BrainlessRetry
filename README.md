@@ -11,17 +11,20 @@ Simple library for retry of any method.
 
 
 ## Retry with wait
-If you want to try call method 10-times and after each fail wait 1000ms to next try.
+If you want to try call method 10-times and after each fail wait 1000ms to next try:
 
 ```
-IWaitAndRetry retry = new WaitAndRetry();
-var result = retry.Retry<string>(10, 1000, () => YourMethod(...) );
+var result = WaitAndRetry.Retry<string>(10, 1000, () => YourMethod(...) );
 ```
 
+### Async methods:
+```
+var result = await WaitAndRetry.RetryAsync<string>(10, 1, () => YourMethodAsync(...) );
+```
 
 ## Installation
 ```
 PM> Install-Package BrainlessRetry
 ```
 
-**For more examples check out** [Unit tests](https://github.com/hlavoj/BrainlessRetry/blob/main/src/BrainlessRetry.Tests/WaitAndRetryUnitTest.cs).
+**For more examples check out** [Unit tests](https://github.com/hlavoj/BrainlessRetry/blob/main/src/BrainlessRetry.Tests/WaitAndRetryUnitTest.cs) **or** [BrainlessRetry.ConsoleExample](https://github.com/hlavoj/BrainlessRetry/tree/main/src/BrainlessRetry.ConsoleExample).
